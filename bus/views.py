@@ -59,5 +59,6 @@ def ticket(request,pk):
 
 def display(request):
     data=ticket_purchased.objects.all()
+    print("hello")
     context= {'dis': data}
     return render(request,'dis.html',context)
