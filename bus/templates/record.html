@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead><tr>
+            <th>Purchased date</th>
+            <th>Purchased by</th>
+            <th>Ticket quantity</th>
+            <th>Ticket Price</th>
+        </tr></thead>
+        <tbody>
+        {% for item in ticket %}
+        <tr>
+            <td>{{item.purchased_date}}</td>
+            <td>{{item.purchased_by}}</td>
+            <td>{{item.ticket_quantity}}</td>
+            <td>{{item.ticket_price}}</td>
+            <!-- <td><a href="{% url 'bus:' item.pk %}">Edit</a>
+            <a href="../delete/{{item.pk}}">Delete</a>
+        </td> -->
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

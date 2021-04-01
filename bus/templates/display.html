@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead><tr>
+            <th>Bus route</th>
+            <th>Bus time</th>
+            <th>Ticket rate</th>
+        </tr></thead>
+        <tbody>
+        {% for item in dis %}
+        <tr>
+            <td>{{item.bus_route}}</td>
+            <td>{{item.bus_time}}</td>
+            <td>{{item.bus_ticket}}</td>
+            <td><a href="{% url 'bus:edit' item.pk %}">Edit</a>
+            <a href="../delete/{{item.pk}}">Delete</a>
+        </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

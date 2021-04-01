@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table border=1>
+        <thead><tr>
+            <th>Bus Route</th>
+            <th>Bus Time</th>
+            <th>Ticket Rate</th>
+            <th>Select User</th>
+            
+        </tr></thead>
+        <tbody>
+        {% for item in dis %}
+        <tr>
+            <form action="{% url 'customer:book' %}">
+            <td>{{item.bus_route}}</td>
+            <td>{{item.bus_time}}</td>
+            <td>{{item.bus_ticket}}</td>
+            <input type="hidden" readonly value={{item.pk}} name='bus_id'>
+            <td>
+                
+                <select name='tic'>
+                    {% for test in use %}
+                    <option value="{{test.pk}}">
+                        {{test.customer_name}}
+                    </option>
+                    {% endfor %}
+                  </select>
+               
+             </td>
+            <!-- <td><a href="../book/{{item.pk}}/">Book</a></td> -->
+            <td><input type="submit" value="Book"></td>
+        </form> 
+        </tr>
+        
+        {% endfor %}
+       
+        </tbody>
+    </table>
+    
+</body>
+</html>

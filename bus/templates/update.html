@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for item in b %}
+    <form action="{% url 'bus:update' item.pk %}">
+        <label>
+            <input type="text" value="{{item.bus_route}}" name="bus_route">Bus Route<br>
+            <input type="time" value="{{item.bus_time}}" name="bus_time">Bus Time<br>
+            <input type="number" value="{{item.bus_ticket}}" name="bus_ticket">Ticket rate<br>
+            <input type="submit">
+        </label>
+    </form>
+    {% endfor %}
+</body>
+</html>

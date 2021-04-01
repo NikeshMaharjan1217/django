@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <lable>
+            
+            {%for item in b%}   
+            <form action="{% url 'bus:ticket' item.pk%}">        
+            Bus Route:
+            <input type="text" name='route' value='{{item.bus_route}}'><br>
+            Bus time:
+            <input type='text' name='time' value='{{item.bus_time}}'><br>
+            Ticket rate:
+            <input type='number' name='ticket' value='{{item.bus_ticket}}'><br>
+            User name:
+            <input type='text' name='name' value='{{u.customer_name}}'>
+            <br>
+            {%endfor%}
+            Ticket Quantity:
+            <input type='number'min='0' max='10' name='quantity'><br>
+            <input type="Submit">
+            </form>
+        </lable>
+    
+    </div>
+</body>
+</html>
